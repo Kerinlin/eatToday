@@ -15,6 +15,7 @@ export default {
 #app {
   width: 100vw;
   height: 100vh;
-  background-color: #253241;
+  // background-color: #253241;
+  background: linear-gradient(to bottom, #16222A, #3A6073);
 }
 </style>

@@ -11,6 +11,7 @@ module.exports = {
     'vue/no-unused-vars': 1,
     'no-irregular-whitespace': 0,
     'no-unused-vars': 1,
+    'vue/no-parsing-error': [2, { 'x-invalid-end-tag': false }],
     camelcase: 0,
     semi: [1, 'always'], // 末尾需要分号结束
     'no-extra-semi': 1, // 禁用不必要的分号
