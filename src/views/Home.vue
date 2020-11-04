@@ -219,6 +219,8 @@ export default {
           // console.log('经度:', data.position.lng);
           that.lat = data.position.lat;
           that.lng = data.position.lng;
+
+          // 查询店铺信息
           this.getData();
         });
         AMap.event.addListener(geolocation, 'error', (err) => {
@@ -228,7 +230,7 @@ export default {
       });
     },
 
-    // 获取附近25家店铺信息
+    // 获取附近店铺信息
     getData() {
       const url = `https://restapi.amap.com/v3/place/around?key=${this.apiOption.key}&keywords=${this.apiOption.keywords}&location=${this.lng},${this.lat}&radius=${this.apiOption.radius}&types=${this.apiOption.types}&offset=${this.apiOption.pageSize}&page=${this.apiOption.page}&extensions=${this.apiOption.extensions}&sortrule=${this.apiOption.sortrule}`;
       axios(url)
@@ -258,13 +260,11 @@ export default {
         });
         return false;
       }
-
-      const total = this.fullShopData.length;
-      const randomIndex = this.random(0, total);
-
-      this.shopName = this.fullShopData[randomIndex].name;
-      this.distance = this.fullShopData[randomIndex].distance;
-      this.address = this.fullShopData[randomIndex].address;
+      const total = this.fullShopData.length; //数据长度
+      const randomIndex = this.random(0, total); // 随机数组下标
+      this.shopName = this.fullShopData[randomIndex].name; //店名
+      this.distance = this.fullShopData[randomIndex].distance; //距离
+      this.address = this.fullShopData[randomIndex].address; //地址
       this.isChose = true;
     },
 
